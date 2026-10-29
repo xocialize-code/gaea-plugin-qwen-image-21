@@ -1,13 +1,13 @@
 # gaea-plugin-qwen-image-21
 
 **Qwen-Image-2.1** (a 7B single-stream block-causal DiT with a Qwen3-VL-8B conditioner and a 64-channel RGBA VAE) as
-a [Gaea](https://github.com/xocialize/gaea) **research plugin**: the 8-step **Turbo** checkpoint and the 40-step
-**base**. It is built on [GaeaPluginKit](https://github.com/xocialize/gaea-plugin-kit) over
+a [Gaea](https://github.com/xocialize-code/gaea) **research plugin**: the 8-step **Turbo** checkpoint and the 40-step
+**base**. It is built on [GaeaPluginKit](https://github.com/xocialize-code/gaea-plugin-kit) over
 [qwen-image21-swift](https://github.com/xocialize/qwen-image21-swift), runs in its own process, and speaks the Gaea
 Plugin Protocol v1. Add it to Gaea by its repo URL:
 
 ```bash
-gaea plugins add https://github.com/xocialize/gaea-plugin-qwen-image-21
+gaea plugins add https://github.com/xocialize-code/gaea-plugin-qwen-image-21
 ```
 
 ## Licence: research and evaluation only
@@ -86,7 +86,7 @@ CHECK_MODELS_ROOT=<a models root holding the three snapshots> scripts/check-plug
 `check-plugin.sh` generates one 512² image with Qwen-Image-2.1 (Turbo) bf16, with every `.build` folder hidden so MLX
 can find its metallib only inside the bundle. A control then shows that the bare worker, outside the bundle, can't.
 `scripts/release.sh` builds, checks, notarizes with the fleet's `mlx-notary` profile, and publishes the GitHub release.
-See the [demo plugin](https://github.com/xocialize/gaea-plugin-demo) for signing, notarization and CI secrets.
+See the [demo plugin](https://github.com/xocialize-code/gaea-plugin-demo) for signing, notarization and CI secrets.
 
 `qwen21-inproc` (`swift run -c release qwen21-inproc`; its header lists the options) is not part of the plugin. It
 runs the same lane in-process through MLXServeEngine, building its request with the worker's own functions, the

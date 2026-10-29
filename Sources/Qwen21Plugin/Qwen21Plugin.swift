@@ -320,7 +320,7 @@ public let qwen21Plugin = GaeaPluginDefinition(
     version: "0.1.0",
     minGaea: "0.2.0",
     team: "CFZS6RXUCP",
-    repo: "https://github.com/xocialize/gaea-plugin-qwen-image-21",
+    repo: "https://github.com/xocialize-code/gaea-plugin-qwen-image-21",
     title: "Qwen-Image-2.1",
     summary: "Qwen-Image-2.1 (Qwen Research licence: non-commercial, research and evaluation only): a 7B block-causal DiT "
         + "with Qwen3-VL-8B conditioning and an RGBA VAE. The 8-step Turbo and the 40-step base, for generation with "

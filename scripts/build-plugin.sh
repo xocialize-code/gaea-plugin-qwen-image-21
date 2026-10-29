@@ -5,7 +5,7 @@
 #   scripts/build-plugin.sh
 #
 # Environment:
-#   GAEA_SPEC_ROOT     checkout of xocialize/gaea, for tools/validate.py (default: ../gaea-mes-media-server)
+#   GAEA_SPEC_ROOT     checkout of xocialize-code/gaea, for tools/validate.py (default: ../gaea-mes-media-server)
 #   SIGN_IDENTITY      default "Developer ID Application: Dustin Nielson (CFZS6RXUCP)"
 #   SIGN_KEYCHAIN      a keychain to sign from (CI's temporary keychain); default: the search list
 #   GAEA_PLUGIN_KIT_PATH  build against a local GaeaPluginKit checkout

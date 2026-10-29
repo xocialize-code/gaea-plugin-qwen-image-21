@@ -46,10 +46,10 @@ jobs:
         with:
           ref: ${{ inputs.tag || github.ref }}
 
-      # GPP's schemas and tools/validate.py live in xocialize/gaea (public).
+      # GPP's schemas and tools/validate.py live in xocialize-code/gaea (public).
       - uses: actions/checkout@v4
         with:
-          repository: xocialize/gaea
+          repository: xocialize-code/gaea
           path: gaea-spec
 
       - name: Select Xcode 26
