@@ -18,6 +18,9 @@
 #   <name>.gaeaplugin/Contents/Resources/manifest.json            sealed by the signature
 #   <name>.gaeaplugin/Contents/Resources/mlx-swift_Cmlx.bundle    default.metallib; MLX finds it through
 #                                                                 the worker's main bundle
+#   <name>.gaeaplugin/Contents/Resources/<package>_<target>.bundle  every other SwiftPM resource bundle the worker
+#                                                                 links: Bundle.module looks in the main bundle's
+#                                                                 resources, and a missing one traps (AB-L-0318)
 set -euo pipefail
 ROOT=${0:A:h:h}
 cd $ROOT
@@ -32,9 +35,12 @@ REQUIREMENT="anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2
 
 step() { print -P "%B==> $*%b" }
 
+# The worker builds in a scratch folder of its own, so its bin folder holds only the resource bundles it links, not
+# the in-process reference's or the check tool's.
+SCRATCH=$ROOT/.build/plugin
 step "build $PRODUCT (release, arm64)"
-xcrun swift build -c release --arch arm64 --product $PRODUCT
-BIN=$(xcrun swift build -c release --arch arm64 --show-bin-path)
+xcrun swift build -c release --arch arm64 --product $PRODUCT --scratch-path $SCRATCH
+BIN=$(xcrun swift build -c release --arch arm64 --scratch-path $SCRATCH --show-bin-path)
 
 rm -rf $DIST && mkdir -p $DIST
 step "generate manifest.json from the plugin's code"
@@ -53,7 +59,7 @@ B=$DIST/$NAME.gaeaplugin
 mkdir -p $B/Contents/MacOS $B/Contents/Resources
 cp $BIN/$PRODUCT $B/Contents/MacOS/$EXE
 [[ -f $BIN/mlx-swift_Cmlx.bundle/Contents/Resources/default.metallib ]] || { print -u2 "no metallib in $BIN/mlx-swift_Cmlx.bundle"; exit 1 }
-ditto $BIN/mlx-swift_Cmlx.bundle $B/Contents/Resources/mlx-swift_Cmlx.bundle
+for bundle in $BIN/*.bundle; do ditto $bundle $B/Contents/Resources/${bundle:t}; done
 cp $DIST/manifest.json $B/Contents/Resources/manifest.json
 cat > $B/Contents/Info.plist <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
