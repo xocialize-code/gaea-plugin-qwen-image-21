@@ -8,8 +8,12 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Existing tag to (re)build and publish, e.g. v0.2.0"
-        required: true
+        description: "Tag or branch to build, e.g. v0.2.0 (default: the branch dispatched from)"
+        required: false
+      publish:
+        description: "Publish a GitHub Release for that tag (otherwise build, sign, check and notarize only)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -57,6 +61,13 @@ jobs:
           sudo xcode-select -s "$(ls -d /Applications/Xcode_26*.app | sort -V | tail -1)"
           xcrun swift --version
 
+      # mlx-swift compiles its kernels into default.metallib with the Metal compiler, which Xcode 26 ships as a
+      # separate component. build-plugin.sh builds with Swift Build, the build system that compiles them (AB-T-0382).
+      - name: Install the Metal toolchain
+        run: |
+          xcodebuild -downloadComponent MetalToolchain
+          xcrun -f metal
+
       - name: Import the Developer ID certificate into a temporary keychain
         env:
           P12_BASE64: ${{ secrets.DEVELOPER_ID_P12_BASE64 }}
@@ -86,6 +97,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           NOTARIZE: "yes"
+          PUBLISH: ${{ (github.event_name == 'push' || inputs.publish) && 'yes' || 'no' }}
         run: SIGN_KEYCHAIN="$KEYCHAIN" NOTARY_KEYCHAIN="$KEYCHAIN" scripts/release.sh
 
       - name: Keep the build's evidence
@@ -94,6 +106,7 @@ jobs:
         with:
           name: dist
           path: |
+            dist/*.gaeaplugin.zip
             dist/*.sha256
             dist/manifest.json
             dist/check.log
