@@ -317,7 +317,7 @@ func offerModel(_ model: Model, edit: Bool) -> JSONValue {
 
 public let qwen21Plugin = GaeaPluginDefinition(
     id: "com.xocialize.gaea.qwen-image-21",
-    version: "0.1.0",
+    version: "0.1.1",
     minGaea: "0.2.0",
     team: "CFZS6RXUCP",
     repo: "https://github.com/xocialize-code/gaea-plugin-qwen-image-21",
