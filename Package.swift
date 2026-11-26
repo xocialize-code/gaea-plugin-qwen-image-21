@@ -16,9 +16,14 @@ let package = Package(
     platforms: [.macOS(.v26)], // mlx-engine-swift's MLXToolKit requires macOS 26
     dependencies: [
         kitPath.map { .package(path: $0) }
-            ?? .package(url: "https://github.com/xocialize-code/gaea-plugin-kit.git", from: "0.3.0"),
-        .package(url: "https://github.com/xocialize/qwen-image21-swift.git", exact: "0.2.0"),
-        .package(url: "https://github.com/xocialize/mlx-engine-swift.git", from: "0.73.1"),
+            ?? .package(url: "https://github.com/xocialize-code/gaea-plugin-kit.git", from: "0.14.1"), // 0.14.1 on: the manifest names the engine actually linked (AB-L-0366)
+        .package(url: "https://github.com/xocialize/qwen-image21-swift.git", exact: "0.2.0"), // its newest; admits mlx-swift 0.33.x (ml-explore from 0.32.3)
+        // mlx-engine-swift 0.82.1, the first on the fleet's mlx-swift 0.33.1.
+        .package(url: "https://github.com/xocialize/mlx-engine-swift.git", from: "0.82.1"),
+        // The fleet's mlx-swift fork, as mlx-engine-swift 0.82.1 takes it: 0.33.1 is upstream 0.33.0 with the vendored
+        // MLX's head-dim-split SDPA routes off, which abort or give wrong attention on M5 (AB-D-0264, AB-R-1009). Named
+        // at the root so no dependency's ml-explore URL wins and builds the unpatched one.
+        .package(url: "https://github.com/xocialize/mlx-swift", from: "0.33.1"),
     ],
     targets: [
         .target(

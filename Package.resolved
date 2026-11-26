@@ -1,13 +1,13 @@
 {
-  "originHash" : "e4dc42966e82e6aa1f31676e3cfb0250d487bd5cbea5d0d34978021e36435be9",
+  "originHash" : "e36bdb00291641ce4e825a84117685ab4352b9dd4563557c952a3020ac18bf5d",
   "pins" : [
     {
       "identity" : "designscaffold",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xocialize/DesignScaffold",
       "state" : {
-        "revision" : "510e8fda8e68e42edb3d808d5f721d799547786f",
-        "version" : "0.25.0"
+        "revision" : "4e44017bbfb1c445aabbe85687f0a1a00ba193f2",
+        "version" : "0.26.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattt/EventSource.git",
       "state" : {
-        "revision" : "86b5096ac59ab46e66bd1f6377c604bc1dab0bc2",
-        "version" : "1.5.1"
+        "revision" : "c3c9534a38895f13a6fd929ea18619c97f889631",
+        "version" : "1.6.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xocialize-code/gaea-plugin-kit.git",
       "state" : {
-        "revision" : "3aa749876713a3e07931313e32546e97feb63390",
-        "version" : "0.3.0"
+        "revision" : "234ed30af93a9d7f894cc34cfc42e8ffc40d042c",
+        "version" : "0.16.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xocialize/mlx-engine-swift.git",
       "state" : {
-        "revision" : "46041603fef7b6378e26753e326828ae71b79ddf",
-        "version" : "0.73.1"
+        "revision" : "ddd2cf10b433a5c4f6cee562a1c506a00807a7a6",
+        "version" : "0.83.0"
       }
     },
     {
@@ -42,17 +42,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xocialize/mlx-exact-conv-swift",
       "state" : {
-        "revision" : "885f79331f84a6299440ac7f09823d9bafce7460",
-        "version" : "0.1.1"
+        "revision" : "042fc99b2e769fc89f949ae47efcd2891954160b",
+        "version" : "0.1.2"
       }
     },
     {
       "identity" : "mlx-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ml-explore/mlx-swift.git",
+      "location" : "https://github.com/xocialize/mlx-swift",
       "state" : {
-        "revision" : "19601207e9a0de51e03ee6ec0c3c5f3784275075",
-        "version" : "0.32.3"
+        "revision" : "e9713221039f39a23f6ba32102b2a83dbe6d9b00",
+        "version" : "0.33.2"
       }
     },
     {
@@ -60,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ml-explore/mlx-swift-lm.git",
       "state" : {
-        "revision" : "3b339ad6e3b3f44c8121ecff5131c7fd55e075e6",
-        "version" : "3.32.3"
+        "revision" : "ca661dc6885f8603e911746838b60d312439a368",
+        "version" : "3.33.0"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xocialize/qwen3vl-mlx-swift",
       "state" : {
-        "revision" : "8e28a8656cb17c0edeb2cc88038dc00403051b6b",
-        "version" : "0.6.0"
+        "revision" : "72c5c0db545ef7f2de24e3bab64d53d4c52a10d6",
+        "version" : "0.7.1"
       }
     },
     {
@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "3b6410f7dee09eb33cdd26260c5fd47fda19b0e2",
-        "version" : "1.7.3"
+        "revision" : "97fd57437fc94cfa6b62f2b8f84c50f433534e17",
+        "version" : "1.7.5"
       }
     },
     {
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-collections.git",
       "state" : {
-        "revision" : "f96b909e1a9e469620bc5037c1e24e00153f376f",
-        "version" : "1.7.5"
+        "revision" : "88754449ab766a739610b660e117762115fabc9c",
+        "version" : "1.7.6"
       }
     },
     {
@@ -114,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/huggingface/swift-huggingface.git",
       "state" : {
-        "revision" : "c30143a4616f3fa994ee3ab3e3464f752845c07c",
-        "version" : "1.0.0"
+        "revision" : "84ced3d4fa31b1bc8c74f420d346f690cb6b0f35",
+        "version" : "1.0.1"
       }
     },
     {
@@ -123,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/huggingface/swift-jinja.git",
       "state" : {
-        "revision" : "1e4d0dc69f7ec1277131fb3853808229c5991825",
-        "version" : "2.5.2"
+        "revision" : "3104efda56131c37dda52e9142f02cc2425c02e6",
+        "version" : "3.2.1"
       }
     },
     {
@@ -150,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/huggingface/swift-transformers",
       "state" : {
-        "revision" : "48473106a93b2d8dfb114b82f0628ebbb71734e7",
-        "version" : "1.3.5"
+        "revision" : "402a8a1105f52038b0949d9596981fc9e32bed17",
+        "version" : "1.4.0"
       }
     },
     {
@@ -159,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ibireme/yyjson.git",
       "state" : {
-        "revision" : "8b4a38dc994a110abaec8a400615567bd996105f",
-        "version" : "0.12.0"
+        "revision" : "6447536015f3d600f3d65323b10976103b337ca7",
+        "version" : "0.13.0"
       }
     }
   ],
